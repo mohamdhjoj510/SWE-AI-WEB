@@ -1,0 +1,46 @@
+.card {
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 26px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}
+
+.avatarWrap {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--grad-brand);
+}
+
+.avatar,
+.avatarImg {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--bg-1);
+  letter-spacing: 0.02em;
+}
+
+.name {
+  font-size: 1.1rem;
+}

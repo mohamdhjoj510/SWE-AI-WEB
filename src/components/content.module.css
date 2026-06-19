@@ -1,0 +1,70 @@
+/* Shared layout primitives used across several content sections. */
+
+.head {
+  max-width: 720px;
+  margin-bottom: 52px;
+}
+
+.headCenter {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: grid;
+  gap: 22px;
+}
+
+.cols2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.cols3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.cols4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.iconBox {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  color: var(--cyan);
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  margin-bottom: 18px;
+}
+
+.cardTitle {
+  font-size: 1.12rem;
+  margin-bottom: 8px;
+}
+
+.cardText {
+  color: var(--text-muted);
+  font-size: 0.96rem;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 920px) {
+  .cols4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cols3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .cols2,
+  .cols3,
+  .cols4 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,14 @@
+.cap {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.cap:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: var(--surface-strong);
+}

@@ -1,0 +1,119 @@
+.pipeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px 36px;
+}
+
+.step {
+  position: relative;
+}
+
+.node {
+  position: relative;
+  height: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.node::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.node:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow);
+}
+
+.node:hover::before {
+  transform: scaleX(1);
+}
+
+.index {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-faint);
+}
+
+.nodeIcon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 13px;
+  color: var(--cyan);
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.nodeTitle {
+  font-size: 1.02rem;
+  margin-bottom: 7px;
+}
+
+.nodeText {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+/* Connector arrow between nodes */
+.connector {
+  position: absolute;
+  top: 50%;
+  right: -29px;
+  transform: translateY(-50%);
+  color: var(--indigo);
+  z-index: 2;
+  opacity: 0.7;
+}
+
+/* Hide the arrow at the end of each visual row (every 4th item) */
+.step:nth-child(4n) .connector {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .pipeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .step:nth-child(4n) .connector {
+    display: inline-flex;
+  }
+  .step:nth-child(2n) .connector {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .pipeline {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .connector,
+  .step:nth-child(2n) .connector,
+  .step:nth-child(4n) .connector {
+    display: inline-flex;
+    top: auto;
+    bottom: -27px;
+    right: 50%;
+    transform: translateX(50%) rotate(90deg);
+  }
+}

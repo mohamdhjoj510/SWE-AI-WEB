@@ -1,0 +1,187 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background: rgba(6, 9, 18, 0.72);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 800;
+  font-size: 1.18rem;
+  letter-spacing: -0.02em;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--grad-brand);
+  color: #060912;
+  box-shadow: 0 8px 22px -8px rgba(34, 211, 238, 0.7);
+}
+
+.brandText {
+  color: var(--text);
+}
+.brandDot {
+  color: var(--cyan);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.links a {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.links a:hover {
+  color: var(--text);
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 0;
+  background: var(--grad-brand);
+  transition: width 0.25s ease;
+  border-radius: 2px;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cta {
+  padding: 10px 18px;
+  font-size: 0.92rem;
+}
+
+.githubBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  background: var(--surface-strong);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.18s ease;
+}
+
+.githubBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--cyan);
+  background: rgba(34, 211, 238, 0.08);
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+@media (max-width: 880px) {
+  .burger {
+    display: flex;
+  }
+  .links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 18px 24px 26px;
+    background: rgba(6, 9, 18, 0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .linksOpen {
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .links a {
+    padding: 12px 4px;
+    font-size: 1.05rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .links a::after {
+    display: none;
+  }
+  .actions {
+    gap: 8px;
+    margin-right: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Keep the header compact: GitHub button becomes icon-only */
+  .githubLabel {
+    display: none;
+  }
+  .githubBtn {
+    padding: 9px 11px;
+  }
+  .cta {
+    padding: 9px 14px;
+    font-size: 0.86rem;
+  }
+}
