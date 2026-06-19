@@ -25,28 +25,6 @@ Requires Node.js 18+ (developed on Node 24).
 
 ---
 
-## Things you'll want to replace
-
-All editable placeholders live in **one file**: [`src/data/siteConfig.js`](src/data/siteConfig.js).
-
-| What | Where | Notes |
-| --- | --- | --- |
-| **Dashboard link** | `DASHBOARD_URL` | Currently `DASHBOARD_URL_HERE`. Used by the hero, navbar, and dashboard section. |
-| **GitHub link** | `GITHUB_URL` | Currently `GITHUB_URL_HERE`. Used in the footer. |
-| **Course context** | `COURSE_CONTEXT` | Footer label. |
-| **Team members & photos** | `TEAM` | Each member has `name`, `role`, and `image` (defaults to `null`). |
-
-### Adding team photos
-
-1. Drop the image into `src/assets/team/` (create the folder if needed).
-2. Import it at the top of [`src/components/Team.jsx`](src/components/Team.jsx), e.g.
-   `import mohammad from '../assets/team/mohammad.jpg';`
-3. Set that import as the `image` value for the matching member in `siteConfig.js`.
-
-Until an image is set, the card shows an elegant initials avatar automatically.
-
----
-
 ## Project structure
 
 ```
@@ -92,6 +70,6 @@ What We Built · Why It Helps · Project Progress · Team · Dashboard Link · F
 
 ## Disclaimer
 
-This is an **academic prototype** built for a university Software Engineering course. It is
+This is an **academic prototype** built for a university Software Engineering seminar. It is
 **not** a medical decision-making system, is not validated for clinical use, and must not be
 used to diagnose, treat, or make decisions about any patient.
