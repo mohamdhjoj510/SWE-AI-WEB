@@ -8,6 +8,7 @@ const LINKS = [
   { href: '#research', label: 'Research' },
   { href: '#dataset', label: 'Dataset' },
   { href: '#workflow', label: 'Workflow' },
+  { href: '#papers', label: 'Papers' },
   { href: '#team', label: 'Team' },
 ];
 

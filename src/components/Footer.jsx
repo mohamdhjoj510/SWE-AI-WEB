@@ -22,6 +22,7 @@ export default function Footer() {
         <div className={styles.links}>
           <a href="#about">About</a>
           <a href="#workflow">Workflow</a>
+          <a href="#papers">Papers</a>
           <a href="#team">Team</a>
           <a href="#dashboard">Dashboard</a>
           {/* TODO: GitHub URL is set via GITHUB_URL in src/data/siteConfig.js */}

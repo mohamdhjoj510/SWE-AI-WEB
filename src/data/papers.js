@@ -1,0 +1,36 @@
+/**
+ * Research papers each sub-group studied, and how each one fed into our project.
+ *
+ * To add another group's paper, append an object with the same shape.
+ *
+ * presentationUrl:
+ *   Put the slide deck PDF in `public/papers/` and reference it here, e.g.
+ *   'papers/tdd-presentation.pdf'. (Drop the actual file into that folder —
+ *   see public/papers/README.md.) Leave as null to hide the slides button.
+ */
+export const PAPER_GROUPS = [
+  {
+    id: 'tdd-code-generation',
+    members: ['Mohammad Hajuj', 'Naief Hajuj'],
+    title: 'Test-Driven Development for Code Generation',
+    // TODO: place the paper PDF at public/papers/2402.13521v2.pdf
+    paperUrl: 'papers/2402.13521v2.pdf',
+    // TODO: place the slide deck at public/papers/Test-Driven-Development-for-Code-Generation.pdf
+    presentationUrl: 'papers/Test-Driven-Development-for-Code-Generation.pdf',
+    tags: ['LLMs', 'TDD', 'Code Generation', 'Software Testing'],
+    summary:
+      'המאמר בודק האם עקרון ה-TDD עוזר כשמודל שפה (GPT-4, Llama 3) כותב את הקוד. במקום רק לבקש פתרון מהמודל, המפתח מספק את הטסטים מראש — כמפרט ולא רק כבדיקה — ולולאת remediation מריצה מחדש טסטים שנכשלו ומבקשת מהמודל לתקן את עצמו. הניסויים נערכו על MBPP, HumanEval ועל 1,100 בעיות מ-CodeChef באמצעות מסגרת בשם TGen.',
+    findings: [
+      'אספקת טסטים בזמן הכתיבה שיפרה את נכונות הקוד בכ-9–29% בין המודלים.',
+      'לולאת תיקון עצמי (remediation) הוסיפה עוד כ-5–9%.',
+      'מודלים חלשים יותר מרוויחים הכי הרבה מהגישה מבוססת-הטסטים.',
+      'יותר מדי טסטים עלולים להזיק — אפקט "lost in the middle" — ולכן איכות חשובה מכמות.',
+    ],
+    // How this paper informed our deterioration-detection project.
+    usage: [
+      'המאמר עיצב את האופן שבו אנחנו בונים ובוטחים בצינור הניתוח. הלקח המרכזי שלו — לתת למערכת את הטסטים תחילה, כמפרט, ולתת לטסטים שנכשלים להוביל את התיקון — מתאים ישירות לחלקים בפרויקט שלנו שממירים רשומות LABEVENTS גולמיות למגמות, לזיהוי דפוסים חריגים ולציון סיכון.',
+      'לפני מימוש לוגיקת ניתוח-המגמות וחישוב הסיכון, כתבנו טסטים שמגדירים את ההתנהגות הצפויה על רצפי מעבדה קטנים שנבדקו ידנית (למשל: סדרת קריאטינין שעולה בהתמדה חייבת להעלות את ציון הסיכון ולהפעיל התראה). הטסטים האלה הם ההגדרה שלנו ל"נכון", בדיוק כפי שהמאמר טוען שטסטים צריכים להיות.',
+      'כשנעזרנו ב-LLM כדי לכתוב טיוטות קוד לצינור, סיפקנו את הטסטים האלה בתוך ה-prompt וחזרנו בלולאת remediation עד שכולם עברו — אותו תהליך עבודה שהמאמר מאמת. כך הקוד שנוצר לאיסוף הנתונים ולניתוח המגמות נשאר מותאם לדרישות שלנו, וקיבלנו דרך מהירה וחוזרת לאתר רגרסיות ככל שהאב-טיפוס התפתח.',
+    ],
+  },
+];
